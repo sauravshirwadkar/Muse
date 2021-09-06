@@ -17,6 +17,7 @@
     <!--Local Files-->
     <link rel="stylesheet" href="muse.css">
     <script src="muse.js"></script>
+    
 </head>
 <body>
     <!--Header-->
@@ -64,7 +65,7 @@
                 <li class="nav-item"><a class="nav-link px-1" href="" target="_blank"><span class="fa fa-envelope icon" ></span></a></li> 
                 <li class="nav-item"><a class="nav-link px-1" href="" target="_blank"><span class="fa fa-instagram icon" ></span></a></li>
                 <li class="nav-item"><a class="nav-link px-1" href="" target="_blank"><span class="fa fa-twitter icon"></span></a></li>
-                <li class="nav-item ml-3"><a class="nav-link px-1" href="" data-toggle="modal" data-target="#cartModal"><span class="fa fa-shopping-cart fa-2x"></span></a></li>
+                <li class="nav-item ml-3 cart"><a class="nav-link px-1" href="cart.html" name="basket"><span class="fa fa-shopping-cart fa-2x"> 0</span></a></li>
               </ul>
            </ul>
        </div>
@@ -178,6 +179,9 @@
                                                   </button>
                                               </span>
                                           </div>
+                                          <div class="text-center">
+                                            <button type="button" class="btn btn-success m-1 add-cart">Add to card</button>
+                                          </div>
                                       </div>
                                   </div>
                                 </div>
@@ -198,6 +202,9 @@
                                                       <span class="fa fa-plus"></span>
                                                   </button>
                                               </span>
+                                          </div>
+                                          <div class="text-center">
+                                            <button type="button" class="btn btn-success m-1 add-cart">Add to card</button>
                                           </div>
                                       </div>
                                   </div>
@@ -236,6 +243,9 @@
                                                   </button>
                                               </span>
                                           </div>
+                                          <div class="text-center">
+                                            <button type="button" class="btn btn-success m-1">Add to card</button>
+                                          </div>
                                       </div>
                                   </div>
                                 </div>
@@ -256,6 +266,9 @@
                                                       <span class="fa fa-plus"></span>
                                                   </button>
                                               </span>
+                                          </div>
+                                          <div class="text-center">
+                                            <button type="button" class="btn btn-success m-1">Add to card</button>
                                           </div>
                                       </div>
                                   </div>
@@ -1018,6 +1031,6 @@ $(".input-number").keydown(function (e) {
      
 
               
-
+<script src="main.js"></script>
 </body>
 </html>
