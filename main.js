@@ -83,6 +83,11 @@ function totalCost(product){
     
 }
 
+function clearCart(){
+    localStorage.clear();
+    location.reload();
+    alert("Cart got cleared!");
+}
 
 function displayCart(){
     let cartItems = localStorage.getItem("productsInCart");
@@ -97,7 +102,6 @@ function displayCart(){
             productContainer.innerHTML += `
             <div class="row">
                 <div class="product m-2 text-center col-sm text-lead">
-                    <button type="button" class="btn btn-danger">Remove</button>
                     <span>${item.name}</span>
                 </div>
                 <div class="price">Rs.${item.price}.00</div>
@@ -105,7 +109,7 @@ function displayCart(){
                 <div class="quantity">
                     <ion-icon name="remove-outline"></ion-icon>
                     <span>${item.inCart}</span>
-                    <ion-icon name="add-outline"></ion-icon>
+                    <ion-icon name="add-outline"z></ion-icon>
                 </div>
                 <div class="total">
                     Rs.${item.inCart * item.price}.00
