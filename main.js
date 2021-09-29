@@ -4,7 +4,7 @@ let products = [
     {
         name: "Gulab Agarbatti 50gm",
         tag: "gulabAgarbatti50gm",
-        price: 20,
+        price: 25,
         inCart: 0
     },
     {
@@ -12,7 +12,91 @@ let products = [
         tag: "gulabAgarbatti250gm",
         price: 100,
         inCart: 0
-    }
+    },
+    {
+        name: "Kevada Agarbatti 50gm",
+        tag: "kevadaAgarbatti50gm",
+        price: 25,
+        inCart: 0
+    },
+    {
+        name: "Kevada Agarbatti 250gm",
+        tag: "kevadaAgarbatti250gm",
+        price: 100,
+        inCart: 0
+    },
+    {
+        name: "Chandan Agarbatti 50gm",
+        tag: "chandanAgarbatti50gm",
+        price: 25,
+        inCart: 0
+    },
+    {
+        name: "Chandan Agarbatti 250gm",
+        tag: "chandanAgarbatti250gm",
+        price: 100,
+        inCart: 0
+    },
+    {
+        name: "Sonchafa Agarbatti 50gm",
+        tag: "sonchafaAgarbatti50gm",
+        price: 25,
+        inCart: 0
+    },
+    {
+        name: "Sonchafa Agarbatti 250gm",
+        tag: "sonchafaAgarbatti250gm",
+        price: 100,
+        inCart: 0
+    },
+    {
+        name: "Mogra Agarbatti 50gm",
+        tag: "mografaAgarbatti50gm",
+        price: 25,
+        inCart: 0
+    },
+    {
+        name: "Mogra Agarbatti 250gm",
+        tag: "mograAgarbatti250gm",
+        price: 100,
+        inCart: 0
+    },
+    {
+        name: "Panadi Agarbatti 50gm",
+        tag: "panadiAgarbatti50gm",
+        price: 25,
+        inCart: 0
+    },
+    {
+        name: "Panadi Agarbatti 250gm",
+        tag: "panadiAgarbatti250gm",
+        price: 100,
+        inCart: 0
+    },
+    {
+        name: "Parijatak Agarbatti 50gm",
+        tag: "parijatakAgarbatti50gm",
+        price: 25,
+        inCart: 0
+    },
+    {
+        name: "Parijatak Agarbatti 250gm",
+        tag: "parijatakAgarbatti250gm",
+        price: 100,
+        inCart: 0
+    },
+    {
+        name: "Utna 50gm",
+        tag: "utna50gm",
+        price: 50,
+        inCart: 0
+    },
+    {
+        name: "Utna 250gm",
+        tag: "utna250gm",
+        price: 250,
+        inCart: 0
+    },
 ];
 
 for (let i=0;i<carts.length;i++){
@@ -22,6 +106,7 @@ for (let i=0;i<carts.length;i++){
         totalCost(products[i]);
     })
 }
+
 
 function onLoadCartNumbers(){
     let productNumbers = localStorage.getItem('cartNumbers');
@@ -44,9 +129,10 @@ function cartNumbers(product){
     }
 
     setItems(product);
+    
 }
 
-function setItems(product){     
+function setItems(product){ 
     let cartItems = localStorage.getItem('productsInCart');
     cartItems = JSON.parse(cartItems); 
 
@@ -89,6 +175,21 @@ function clearCart(){
     alert("Cart got cleared!");
 }
 
+function addItem(product){
+    // console.log(product);
+    // let cartItems = localStorage.getItem('productsInCart');
+    // cartItems = JSON.parse(cartItems); 
+    // console.log(cartItems);
+    // let arr = []
+    // Object.entries(cartItems).map(item => {
+    //     arr.push(item);
+    //   })
+    // console.log(arr)
+    
+    
+    
+}
+
 function displayCart(){
     let cartItems = localStorage.getItem("productsInCart");
     cartItems = JSON.parse(cartItems);
@@ -109,8 +210,9 @@ function displayCart(){
                 <div class="quantity">
                     <ion-icon name="remove-outline"></ion-icon>
                     <span>${item.inCart}</span>
-                    <ion-icon name="add-outline"z></ion-icon>
+                    <ion-icon class="addItem" name="add-outline" onclick="addItem()"></ion-icon>
                 </div>
+                
                 <div class="total">
                     Rs.${item.inCart * item.price}.00
                 </div>

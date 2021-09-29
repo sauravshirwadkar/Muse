@@ -18,18 +18,22 @@ $(document).ready(function () {
 
     $("#yes").click(function () {
             $("#ship").slideDown("slow");
+            $(".shipReq").attr("required",true);
     });
 
     $("#no").click(function () {
         $("#ship").slideUp();
+        $(".shipReq").attr("required",false);
     });
 
     $("#neft").click(function () {
         $("#transactionid").slideDown("slow");
+        $(".neftReq").attr("required",true);
     });
 
     $("#cash").click(function () {
         $("#transactionid").slideUp();
+        $(".neftReq").attr("required",false);
     });
     
     $(function() {
