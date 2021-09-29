@@ -155,6 +155,27 @@ function setItems(product){
     localStorage.setItem("productsInCart", JSON.stringify(cartItems));
 }
 
+function updateQuantity(product, quantity=1){ 
+    // load existing data
+    let cartItems = localStorage.getItem('productsInCart');
+
+    cartItems = JSON.parse(cartItems); 
+
+    cartItems[product.tag].inCart += quantity;
+
+    const totalQuantity = +cartItems[product.tag].inCart
+    if (totalQuantity < 1) return;
+
+    // loop through items and calculate total price
+    let totalCost = 0;
+    Object.values(cartItems).forEach((item) => {
+        totalCost += item.price * item.inCart;
+    })
+    
+    localStorage.setItem("productsInCart", JSON.stringify(cartItems));
+
+    localStorage.setItem("totalCost", totalCost);
+}
 
 function totalCost(product){
     // console.log("Price is",product.price);
@@ -175,19 +196,30 @@ function clearCart(){
     alert("Cart got cleared!");
 }
 
-function addItem(product){
-    // console.log(product);
-    // let cartItems = localStorage.getItem('productsInCart');
-    // cartItems = JSON.parse(cartItems); 
-    // console.log(cartItems);
-    // let arr = []
-    // Object.entries(cartItems).map(item => {
-    //     arr.push(item);
-    //   })
-    // console.log(arr)
-    
-    
-    
+function addItem() {
+    $('.addItem').click(function (e) {
+        // update the quantity count
+        const item = this.dataset.key
+        const cartItems = localStorage.getItem('productsInCart');
+        selectedItem = JSON.parse(cartItems)[item];
+        updateQuantity(selectedItem)
+
+        // update display
+        displayCart()
+    })
+}
+
+function removeItem(){
+    $('.removeItem').click(function (e) {
+        // update the quantity count
+        const item = this.dataset.key
+        const cartItems = localStorage.getItem('productsInCart');
+        selectedItem = JSON.parse(cartItems)[item];
+        updateQuantity(selectedItem, -1)
+
+        // update display
+        displayCart()
+    })
 }
 
 function displayCart(){
@@ -196,7 +228,7 @@ function displayCart(){
     let productContainer = document.querySelector(".products");
     let cartCost = localStorage.getItem("totalCost");
 
-    console.log(cartItems);
+    // console.log(cartItems);
     if(cartItems && productContainer){
         productContainer.innerHTML='';
         Object.values(cartItems).map(item => {
@@ -208,12 +240,16 @@ function displayCart(){
                 <div class="price">Rs.${item.price}.00</div>
                 
                 <div class="quantity">
-                    <ion-icon name="remove-outline"></ion-icon>
+                    <button  class="removeItem btn btn-link" data-key='${item.tag}'>
+                        <ion-icon name="remove-outline"></ion-icon>
+                    </button>
                     <span>${item.inCart}</span>
-                    <ion-icon class="addItem" name="add-outline" onclick="addItem()"></ion-icon>
+                    <button  class="addItem btn btn-link" data-key='${item.tag}'>
+                        <ion-icon name="add-outline"></ion-icon>
+                    </button>
                 </div>
                 
-                <div class="total">
+                <div class="total item-total">
                     Rs.${item.inCart * item.price}.00
                 </div>
             </div>
@@ -226,6 +262,9 @@ function displayCart(){
             </div>    
             <h4 class="basketTotal">Rs.${cartCost}.00</h4>
         `
+
+        addItem();
+        removeItem();
     }
 }
 
