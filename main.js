@@ -153,6 +153,7 @@ function setItems(product){
     
     
     localStorage.setItem("productsInCart", JSON.stringify(cartItems));
+    alert("Product added to the cart!")
 }
 
 function updateQuantity(product, quantity=1){ 
@@ -221,6 +222,7 @@ function removeItem(){
         displayCart()
     })
 }
+
 
 function displayCart(){
     let cartItems = localStorage.getItem("productsInCart");
