@@ -155,6 +155,25 @@ function setItems(product){
     localStorage.setItem("productsInCart", JSON.stringify(cartItems));
 }
 
+function removeItemFromList(product){ 
+    // load existing data
+    let cartItems = localStorage.getItem('productsInCart');
+    
+    cartItems = JSON.parse(cartItems); 
+    delete cartItems[product.tag]
+    if (Object.keys(cartItems).length === 0) return clearCart();
+
+    // loop through items and calculate total price
+    let totalCost = 0;
+    Object.values(cartItems).forEach((item) => {
+        totalCost += item.price * item.inCart;
+    })
+    
+    localStorage.setItem("productsInCart", JSON.stringify(cartItems));
+
+    localStorage.setItem("totalCost", totalCost);
+}
+
 function updateQuantity(product, quantity=1){ 
     // load existing data
     let cartItems = localStorage.getItem('productsInCart');
@@ -164,7 +183,7 @@ function updateQuantity(product, quantity=1){
     cartItems[product.tag].inCart += quantity;
 
     const totalQuantity = +cartItems[product.tag].inCart
-    if (totalQuantity < 1) return;
+    if (totalQuantity < 1) return removeItemFromList(product);
 
     // loop through items and calculate total price
     let totalCost = 0;
