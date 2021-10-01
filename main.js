@@ -185,7 +185,7 @@ function setItems(product) {
     };
   }
 
-  localStorage.setItem("productsInCart", JSON.stringify(cartItems))
+  localStorage.setItem("productsInCart", JSON.stringify(cartItems));
   alertBox("success");
 }
 
@@ -278,7 +278,7 @@ function addItem() {
 
     // update display
     displayCart();
-    alertBox( "success");
+    alertBox("success");
   });
 }
 

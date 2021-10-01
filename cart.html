@@ -1,30 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MUSE-Cart</title>
     <!--Bootstrap CDN-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-    
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-    
-    
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+
     <!--Local Files-->
-    <link rel="stylesheet" href="muse.css">
+    <link rel="stylesheet" href="muse.css" />
     <script src="muse.js"></script>
-</head>
-<body>
-  <div class="alert-component"></div>
+  </head>
+  <body>
+    <div class="alert-component"></div>
 
     <div class="text-center">
       <h2 class="cart">Cart <span></span></h2>
       <a href="index.html">Go to items!</a>
     </div>
-    
+
     <div class="products-container">
       <div class="product-header">
         <h5 class="product-title">PRODUCT</h5>
@@ -33,197 +47,235 @@
         <h5 class="total">TOTAL</h5>
       </div>
 
-      <div class="products">
-     
-      </div>
+      <div class="products"></div>
       <!-- <div class="text-center">
         <button type="button" class="btn btn-danger text-center" onclick="clearCart()">Clear Cart!</button>
       </div> -->
-     
     </div>
 
     <!--Form Elements-->
-    <hr class=""><br>
+    <hr class="" />
+    <br />
     <form>
-    <!--First Name and last name-->
-    <div class="container-fluid col-lg-10">
-      <div class="row d-flex justify-content-center">
-    
-        <div class="col-sm ">
-            <label class="d-flex justify-content-xs-center"><b>Enter your first name:</b></label>
-            <input type="text" class="text" id="text" name="text" required>
-        </div>
+      <!--First Name and last name-->
+      <div class="container-fluid col-lg-10">
+        <div class="row d-flex justify-content-center">
+          <div class="col-sm">
+            <label class="d-flex justify-content-xs-center"
+              ><b>Enter your first name:</b></label
+            >
+            <input type="text" class="text" id="text" name="text" required />
+          </div>
 
-        <div class="col-sm ">
-          <label><b>Enter your last name:</b></label>
-          <input type="text" class="text" id="text" name="text" required>
+          <div class="col-sm">
+            <label><b>Enter your last name:</b></label>
+            <input type="text" class="text" id="text" name="text" required />
+          </div>
         </div>
-
       </div>
-    </div>
 
-
-    <!--Phone No and email address-->
-    <div class="container-fluid col-lg-10">
-      <div class="row d-flex justify-content-center">
-    
-        <div class="col-sm">
+      <!--Phone No and email address-->
+      <div class="container-fluid col-lg-10">
+        <div class="row d-flex justify-content-center">
+          <div class="col-sm">
             <label><b>Enter your mobile number:</b></label>
-            <input type="number" id="text" name="text" required>
-        </div>
+            <input type="number" id="text" name="text" required />
+          </div>
 
-        <div class="col-sm ">
-          <label><b>Enter your email address:</b></label>
-          <input type="email" id="text" name="text" required>
+          <div class="col-sm">
+            <label><b>Enter your email address:</b></label>
+            <input type="email" id="text" name="text" required />
+          </div>
         </div>
-
       </div>
-    </div>
-    <!--Pincode-->
-    <div class="container-fluid col-lg-10">
-      <div class="row d-flex justify-content-center">
-    
-        <div class="col-sm">
+      <!--Pincode-->
+      <div class="container-fluid col-lg-10">
+        <div class="row d-flex justify-content-center">
+          <div class="col-sm">
             <label><b>Enter your City:</b></label>
-            <input type="text" class="text" id="text" name="text" required>
+            <input type="text" class="text" id="text" name="text" required />
+          </div>
+
+          <div class="col-sm">
+            <label><b>Enter your Pin code:</b></label>
+            <input type="number" id="text" name="text" required />
+          </div>
         </div>
+      </div>
 
-        <div class="col-sm ">
-          <label><b>Enter your Pin code:</b></label>
-          <input type="number" id="text" name="text" required>
+      <!--Where did you heard about us-->
+      <div class="container-fluid col-lg-10">
+        <div class="row d-flex justify-content-center">
+          <div class="form-group col-sm" id="dropdown-mode">
+            <label for="sel1"><b>Where did you heard about us:</b></label>
+            <select
+              class="form-control"
+              id="mode"
+              type="mode"
+              name="mode"
+              required
+            >
+              <option value="">Select the mode!</option>
+              <option value="1" id="nameOfVolunteer">VSM Volunteer</option>
+              <option value="2">Facebook</option>
+              <option value="3">Twitter</option>
+              <option value="4">Instagram</option>
+              <option value="5">Other</option>
+            </select>
+          </div>
+
+          <div class="col-sm" id="nameVolunteer">
+            <label class="d-flex justify-content-xs-center"
+              ><b>Enter the name of the volunteer:</b></label
+            >
+            <input type="text" class="text" id="volunteerName" name="text" />
+          </div>
+
+          <div class="col-sm" id="other">
+            <label class="d-flex justify-content-xs-center"
+              ><b>Please mention the other source:</b></label
+            >
+            <input type="text" class="text" id="volunteerName" name="text" />
+          </div>
         </div>
-
-      </div>
-    </div>
-
-   <!--Where did you heard about us-->
-   <div class="container-fluid col-lg-10">
-    <div class="row d-flex justify-content-center">
-  
-      <div class="form-group col-sm" id="dropdown-mode">
-        <label for="sel1"><b>Where did you heard about us:</b></label>
-        <select class="form-control" id="mode" type="mode" name="mode" required>
-            <option value="">Select the mode!</option>
-            <option value="1" id="nameOfVolunteer">VSM Volunteer</option>
-            <option value="2">Facebook</option>
-            <option value="3">Twitter</option>
-            <option value="4">Instagram</option>
-            <option value="5">Other</option>
-        </select>
-    </div>
-
-      <div class="col-sm" id="nameVolunteer">
-        <label class="d-flex justify-content-xs-center"><b>Enter the name of the volunteer:</b></label>
-        <input type="text" class="text" id="volunteerName" name="text" >
       </div>
 
-      <div class="col-sm" id="other">
-        <label class="d-flex justify-content-xs-center"><b>Please mention the other source:</b></label>
-        <input type="text" class="text" id="volunteerName" name="text" >
+      <br />
+      <hr />
+
+      <!--Checkbox for home delivery-->
+      <div class="container-fluid d-flex justify-content-center">
+        <p class="">
+          Do you wish to have this order to be courired to you?<br /><strong
+            >Note: Home delivery charges will be applicable as an extra amount
+            over the total amount</strong
+          >
+        </p>
+        <br />
       </div>
 
-    </div>
-  </div>
-    
-    <br>
-    <hr >
+      <div class="container-fluid">
+        <div class="row d-flex justify-content-center">
+          <div class="col-sm d-flex justify-content-center">
+            <label class="radio-btn"
+              ><b>YES</b>
+              <input type="radio" id="yes" name="shipping" value="1" />
+              <span class="checkmark"></span>
+            </label>
+          </div>
 
+          <div class="col-sm d-flex justify-content-center">
+            <label class="radio-btn"
+              ><b>NO</b>
+              <input type="radio" id="no" name="shipping" value="2" />
+              <span class="checkmark"></span>
+            </label>
+          </div>
+        </div>
+      </div>
 
-    <!--Checkbox for home delivery-->
-    <div class="container-fluid  d-flex justify-content-center">
-      <p class="">Do you wish to have this order to be courired to you?<br><strong>Note: Home delivery charges will be applicable as an extra amount over the total amount</strong></p>
-      <br>
-    </div>
-
-    <div class="container-fluid">
-      <div class="row d-flex justify-content-center">
-
+      <div class="container" id="ship">
         <div class="col-sm d-flex justify-content-center">
-          <label class="radio-btn"><b>YES</b>
-            <input type="radio" id="yes" name="shipping" value="1" >
-            <span class="checkmark"></span>
-          </label>
+          <label><b>Enter your shipping address:</b></label>
+          <textarea
+            rows="7"
+            cols="80"
+            class="shipReq"
+            placeholder="Enter your shipping address"
+          ></textarea>
         </div>
-          
+      </div>
+      <br />
+      <hr class="" />
+
+      <!--Mode Of payment-->
+      <div class="container-fluid d-flex justify-content-center mt-1">
+        <p class=""><b>Select the mode of payment:</b></p>
+        <br />
+      </div>
+      <div class="container-fluid">
+        <div class="row d-flex justify-content-center">
+          <div class="col-sm d-flex justify-content-center">
+            <label class="radio-btn"
+              ><b>CASH</b>
+              <input type="radio" name="payment" id="cash" value="1" />
+              <span class="checkmark"></span>
+            </label>
+          </div>
+
+          <div class="col-sm d-flex justify-content-center">
+            <label class="radio-btn"
+              ><b>NEFT</b>
+              <input type="radio" name="payment" id="neft" value="2" />
+              <span class="checkmark"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+      <!--Transaction Id-->
+      <div class="container" id="transactionid">
         <div class="col-sm d-flex justify-content-center">
-          <label class="radio-btn"><b>NO</b>
-            <input type="radio" id="no" name="shipping" value="2">
-            <span class="checkmark"></span>
-          </label>
+          <label class=""><b>Enter the Transaction Id:</b></label>
+          <input type="text" class="text neftReq" id="text" name="text" />
         </div>
-         
       </div>
-    </div>
 
-    <div class="container" id="ship">
-      <div class="col-sm d-flex justify-content-center">
-        <label><b>Enter your shipping address:</b></label>
-        <textarea rows="7" cols="80" class="shipReq" placeholder="Enter your shipping address"></textarea>
+      <hr class="" />
+
+      <!--Submit Button-->
+      <div class="container col-lg-10 d-flex justify-content-center">
+        <button
+          type="submit"
+          class="btn btn-success registerbtn"
+          value="Submit"
+        >
+          Submit</button
+        ><br />
       </div>
-    </div>
-    <br>
-    <hr class="">
+    </form>
+    <br />
 
+    <!--Footer-->
+    <div class="">
+      <ul class="navbar-nav flex-row d-flex justify-content-center">
+        <li class="nav-item">
+          <a class="nav-link px-1" href="" target="_blank"
+            ><span class="fa fa-linkedin icon"></span
+          ></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link px-1" href="" target="_blank"
+            ><span class="fa fa-envelope icon"></span
+          ></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link px-1" href="" target="_blank"
+            ><span class="fa fa-instagram icon"></span
+          ></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link px-1" href="" target="_blank"
+            ><span class="fa fa-twitter icon"></span
+          ></a>
+        </li>
+      </ul>
 
-    <!--Mode Of payment-->
-    <div class="container-fluid d-flex justify-content-center mt-1">
-      <p class=""><b>Select the mode of payment:</b></p><br>
-    </div>
-    <div class="container-fluid">
-      <div class="row d-flex justify-content-center">
-
-        <div class="col-sm d-flex justify-content-center">
-          <label class="radio-btn"><b>CASH</b>
-            <input type="radio" name="payment" id="cash" value="1">
-            <span class="checkmark"></span>
-          </label>
-        </div>
-          
-        <div class="col-sm d-flex justify-content-center">
-          <label class="radio-btn"><b>NEFT</b>
-            <input type="radio" name="payment" id="neft" value="2">
-            <span class="checkmark"></span>
-          </label>
-        </div>
-         
-      </div>
-    </div>
-    <!--Transaction Id-->
-    <div class="container" id="transactionid">
-      <div class="col-sm d-flex justify-content-center">
-        <label class=""><b>Enter the Transaction Id:</b></label>
-        <input type="text" class="text neftReq" id="text" name="text">
-      </div>
+      <p class="text-center"><strong>muse@gmail.com</strong></p>
     </div>
 
-    <hr class="">
- 
-    <!--Submit Button-->
-    <div class="container col-lg-10  d-flex justify-content-center">
-      <button type="submit" class="btn btn-success registerbtn" value="Submit">Submit</button><br />
-  </div>
-</form> <br>
+    <!--Whatsapp logo-->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"
+    />
+    <a
+      href="https://api.whatsapp.com/send?phone=7045413967&text=Hello!!!"
+      class="float"
+      target="_blank"
+    >
+      <i class="fa fa-whatsapp my-float"></i>
+    </a>
 
-<!--Footer-->
-<div class="">
-  <ul class="navbar-nav flex-row d-flex justify-content-center">
-    <li class="nav-item"><a class="nav-link px-1" href="" target="_blank"><span class="fa fa-linkedin icon"></span></a></li>
-    <li class="nav-item"><a class="nav-link px-1" href="" target="_blank"><span class="fa fa-envelope icon" ></span></a></li> 
-    <li class="nav-item"><a class="nav-link px-1" href="" target="_blank"><span class="fa fa-instagram icon" ></span></a></li>
-    <li class="nav-item"><a class="nav-link px-1" href="" target="_blank"><span class="fa fa-twitter icon"></span></a></li>
-  </ul> 
-  
-  <p class="text-center"><strong>muse@gmail.com</strong></p>
-</div>
-
-<!--Whatsapp logo-->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-<a href="https://api.whatsapp.com/send?phone=7045413967&text=Hello!!!" class="float" target="_blank">
-<i class="fa fa-whatsapp my-float"></i>
-</a>
-    
-
-
-<script src="main.js"></script>
-</body>
+    <script src="main.js"></script>
+  </body>
 </html>
