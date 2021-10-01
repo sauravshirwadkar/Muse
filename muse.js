@@ -1,20 +1,60 @@
 
 $(document).ready(function () {
-    $("#mainAgarbattiBlock, #mainUtnaBlock, #ship, #nameVolunteer, #other, #transactionid").hide()
+    $("#mainAgarbattiBlock, #mainUtnaBlock, #paintedDiyaBlock, #soapBlock, #ship, #nameVolunteer, #other, #transactionid").hide()
    
     $("#agarbatti").click(function () {
         $("#mainAgarbattiBlock").slideToggle();
         $( "#agarbatti" ).toggleClass( "active-link" );
+
         $("#mainUtnaBlock").slideUp();
+        $("#paintedDiyaBlock").slideUp();
+        $("#soapBlock").slideUp();
+
         $( "#utna" ).removeClass( "active-link" );
+        $( "#diya" ).removeClass( "active-link" );
+        $( "#soap" ).removeClass( "active-link" );
+
     });
 
     $("#utna").click(function () {
         $("#mainUtnaBlock").slideToggle();
         $( "#utna" ).toggleClass( "active-link" );
+
         $("#mainAgarbattiBlock").slideUp();
+        $("#paintedDiyaBlock").slideUp();
+        $("#soapBlock").slideUp();
+
         $( "#agarbatti" ).removeClass( "active-link" );
+        $( "#diya" ).removeClass( "active-link" );
+        $( "#soap" ).removeClass( "active-link" );
     });
+
+    $("#diya").click(function () {
+        $("#paintedDiyaBlock").slideToggle();
+        $( "#diya" ).toggleClass( "active-link" );
+
+        $("#mainAgarbattiBlock").slideUp();
+        $("#mainUtnaBlock").slideUp();
+        $("#soapBlock").slideUp();
+
+        $( "#agarbatti" ).removeClass( "active-link" );
+        $( "#utna" ).removeClass( "active-link" );
+        $( "#soap" ).removeClass( "active-link" );
+    });
+
+    $("#soap").click(function () {
+        $("#soapBlock").slideToggle();
+        $( "#soap" ).toggleClass( "active-link" );
+
+        $("#mainAgarbattiBlock").slideUp();
+        $("#mainUtnaBlock").slideUp();
+        $("#paintedDiyaBlock").slideUp();
+
+        $( "#agarbatti" ).removeClass( "active-link" );
+        $( "#utna" ).removeClass( "active-link" );
+        $( "#diya" ).removeClass( "active-link" );
+    });
+
 
     $("#yes").click(function () {
             $("#ship").slideDown("slow");
