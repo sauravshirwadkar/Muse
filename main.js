@@ -351,9 +351,9 @@ displayCart();
 onLoadCartNumbers();
 
 function loadComponents(componentName) {
-  $(`.${componentName}`).load(`components.html#${componentName}`);
-  console.log("loaded");
+  $(`.${componentName}`).load(`components.html #${componentName}`);
 }
 
 loadComponents("alert-component");
-console.log("ss");
+loadComponents("header");
+loadComponents("footer");
