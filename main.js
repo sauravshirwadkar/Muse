@@ -156,7 +156,7 @@ function cartNumbers(product) {
   let productNumbers = localStorage.getItem("cartNumbers");
   productNumbers = parseInt(productNumbers);
   if (productNumbers) {
-      localStorage.setItem("cartNumbers", productNumbers + 1);  
+    localStorage.setItem("cartNumbers", productNumbers + 1);
     document.querySelector(".cart span").textContent = productNumbers + 1;
   } else {
     localStorage.setItem("cartNumbers", 1);
@@ -185,23 +185,23 @@ function setItems(product) {
     };
   }
 
-  localStorage.setItem("productsInCart", JSON.stringify(cartItems));
-  // ?. checks if tag existing in the product object(optional chaining)
-  // ?? is for fallback
-  // TODO: better way is to destructure the values
-  const message = `${product?.tag ?? "Product"} is added in cart`;
-  alertBox(message);
+  localStorage.setItem("productsInCart", JSON.stringify(cartItems))
+  alertBox("success");
 }
 
-function alertBox(message) {
+function alertBox(type) {
   const alertContainer = $(".alert");
   const messageContainer = $(".alert-message");
+  const message = [
+    "Item has been successfully added to the cart",
+    "Item has been successfully removed from the cart",
+  ][type === "success" ? 0 : 1];
 
-  alertContainer.show();
+  alertContainer.show().addClass(`alert-${type}`);
   messageContainer.html(message);
 
   const timer = setTimeout(() => {
-    alertContainer.hide();
+    alertContainer.hide().removeClass(`alert-${type}`);
     messageContainer.html("");
 
     return clearTimeout(timer);
@@ -226,11 +226,7 @@ function removeItemFromList(product) {
 
   localStorage.setItem("totalCost", totalCost);
 
-  // ?. checks if tag existing in the product object(optional chaining)
-  // ?? is for fallback
-  // TODO: better way is to destructure the values
-  const message = `${product?.tag ?? "Product"} is removed from the cart`;
-  alertBox(message);
+  alertBox("danger");
 }
 
 function updateQuantity(product, quantity = 1) {
@@ -270,12 +266,6 @@ function totalCost(product) {
 function clearCart() {
   localStorage.clear();
   location.reload();
-
-  // ?. checks if tag existing in the product object(optional chaining)
-  // ?? is for fallback
-  // TODO: better way is to destructure the values
-  const message = `Cart is cleared! Please select items to checkout`;
-  alertBox(message);
 }
 
 function addItem() {
@@ -288,6 +278,7 @@ function addItem() {
 
     // update display
     displayCart();
+    alertBox( "success");
   });
 }
 
@@ -297,10 +288,12 @@ function removeItem() {
     const item = this.dataset.key;
     const cartItems = localStorage.getItem("productsInCart");
     selectedItem = JSON.parse(cartItems)[item];
-    updateQuantity(selectedItem, -1);
+    const isItemRemoved = updateQuantity(selectedItem, -1);
 
     // update display
     displayCart();
+    if (!isItemRemoved) return;
+    alertBox("danger");
   });
 }
 
@@ -357,12 +350,10 @@ function displayCart() {
 displayCart();
 onLoadCartNumbers();
 
-
-
 function loadComponents(componentName) {
-    $(`.${componentName}`).load(`components.html#${componentName}`);
-    console.log('loaded');
+  $(`.${componentName}`).load(`components.html#${componentName}`);
+  console.log("loaded");
 }
 
-loadComponents('alert-component');
-console.log('ss');
+loadComponents("alert-component");
+console.log("ss");
