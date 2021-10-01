@@ -57,12 +57,12 @@ $(document).ready(function () {
 
   $("#yes").click(function () {
     $("#ship").slideDown("slow");
-    $(".shipForm").attr("required", true);
+    $(".shipReq").attr("required", true);
   });
 
   $("#no").click(function () {
     $("#ship").slideUp();
-    $(".shipForm").attr("required", false);
+    $(".shipReq").attr("required", false);
   });
 
   $("#neft").click(function () {

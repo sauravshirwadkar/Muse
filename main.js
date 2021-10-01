@@ -186,7 +186,26 @@ function setItems(product) {
   }
 
   localStorage.setItem("productsInCart", JSON.stringify(cartItems));
-  alert("Product added to the cart!");
+  alertBox("success");
+}
+
+function alertBox(type) {
+  const alertContainer = $(".alert");
+  const messageContainer = $(".alert-message");
+  const message = [
+    "Item has been successfully added to the cart",
+    "Item has been successfully removed from the cart",
+  ][type === "success" ? 0 : 1];
+
+  alertContainer.show().addClass(`alert-${type}`);
+  messageContainer.html(message);
+
+  const timer = setTimeout(() => {
+    alertContainer.hide().removeClass(`alert-${type}`);
+    messageContainer.html("");
+
+    return clearTimeout(timer);
+  }, 3000);
 }
 
 function removeItemFromList(product) {
@@ -206,25 +225,8 @@ function removeItemFromList(product) {
   localStorage.setItem("productsInCart", JSON.stringify(cartItems));
 
   localStorage.setItem("totalCost", totalCost);
-}
 
-function removeItemFromList(product) {
-  // load existing data
-  let cartItems = localStorage.getItem("productsInCart");
-
-  cartItems = JSON.parse(cartItems);
-  delete cartItems[product.tag];
-  if (Object.keys(cartItems).length === 0) return clearCart();
-
-  // loop through items and calculate total price
-  let totalCost = 0;
-  Object.values(cartItems).forEach((item) => {
-    totalCost += item.price * item.inCart;
-  });
-
-  localStorage.setItem("productsInCart", JSON.stringify(cartItems));
-
-  localStorage.setItem("totalCost", totalCost);
+  alertBox("danger");
 }
 
 function updateQuantity(product, quantity = 1) {
@@ -264,7 +266,6 @@ function totalCost(product) {
 function clearCart() {
   localStorage.clear();
   location.reload();
-  alert("Cart got cleared!");
 }
 
 function addItem() {
@@ -277,6 +278,7 @@ function addItem() {
 
     // update display
     displayCart();
+    alertBox("success");
   });
 }
 
@@ -286,10 +288,12 @@ function removeItem() {
     const item = this.dataset.key;
     const cartItems = localStorage.getItem("productsInCart");
     selectedItem = JSON.parse(cartItems)[item];
-    updateQuantity(selectedItem, -1);
+    const isItemRemoved = updateQuantity(selectedItem, -1);
 
     // update display
     displayCart();
+    if (!isItemRemoved) return;
+    alertBox("danger");
   });
 }
 
@@ -345,3 +349,11 @@ function displayCart() {
 
 displayCart();
 onLoadCartNumbers();
+
+function loadComponents(componentName) {
+  $(`.${componentName}`).load(`components.html #${componentName}`);
+}
+
+loadComponents("alert-component");
+loadComponents("header");
+loadComponents("footer");
