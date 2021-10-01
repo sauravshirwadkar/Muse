@@ -168,12 +168,12 @@ hr{
     }
     
     /*LinkedIn*/
-    .fa-linkedin{
+    .fa-facebook{
     background: #0e76a8;
     color: white;
     }
     
-    .fa-linkedin:hover{
+    .fa-facebook:hover{
       color: white;
       background: #2867B2;
       opacity: 0.9;

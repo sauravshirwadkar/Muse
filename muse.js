@@ -1,6 +1,6 @@
 
 $(document).ready(function () {
-    $("#mainAgarbattiBlock, #mainUtnaBlock, #paintedDiyaBlock, #soapBlock, #ship, #nameVolunteer, #other, #transactionid").hide()
+    $("#mainUtnaBlock, #paintedDiyaBlock, #soapBlock, #ship, #nameVolunteer, #other, #transactionid").hide()
    
     $("#agarbatti").click(function () {
         $("#mainAgarbattiBlock").slideToggle();
